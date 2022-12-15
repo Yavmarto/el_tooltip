@@ -12,7 +12,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  el_tooltip:
+  el_tooltip2:
     path: ../
 
   cupertino_icons: ^1.0.2

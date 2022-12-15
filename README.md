@@ -21,7 +21,7 @@ Add to your `pubspec.yaml`
 
 ```yaml
 dependencies:
-  el_tooltip: <last_version>
+  el_tooltip2: <last_version>
 ```
 
 Import the library and call the Widget ElTooltip() with the required fields `child` and `content`
@@ -29,7 +29,7 @@ Import the library and call the Widget ElTooltip() with the required fields `chi
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:el_tooltip/el_tooltip.dart';
+import 'package:el_tooltip2/el_tooltip2.dart';
 
 void main() {
   runApp(MaterialApp(

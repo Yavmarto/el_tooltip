@@ -1,5 +1,5 @@
+import 'package:el_tooltip2/el_tooltip2.dart';
 import 'package:flutter/material.dart';
-import 'package:el_tooltip/el_tooltip.dart';
 
 void main() {
   const tooltipContent = Text(

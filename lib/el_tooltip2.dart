@@ -1,6 +1,7 @@
-library el_tooltip;
+library el_tooltip2;
 
 import 'package:flutter/material.dart';
+
 import 'src/arrow.dart';
 import 'src/bubble.dart';
 import 'src/element_box.dart';
@@ -56,11 +57,11 @@ class ElTooltip extends StatefulWidget {
     super.key,
   });
   @override
-  State<ElTooltip> createState() => _ElTooltipState();
+  State<ElTooltip> createState() => ElTooltipState();
 }
 
 /// _ElTooltipState extends ElTooltip class
-class _ElTooltipState extends State<ElTooltip> with WidgetsBindingObserver {
+class ElTooltipState extends State<ElTooltip> with WidgetsBindingObserver {
   final GlobalKey _widgetKey = GlobalKey();
   OverlayEntry? _overlayEntryHidden;
   OverlayEntry? _overlayEntry;
@@ -89,7 +90,7 @@ class _ElTooltipState extends State<ElTooltip> with WidgetsBindingObserver {
   /// or when the user scrolls. This is done to avoid displacement.
   @override
   void didChangeMetrics() {
-    _hideOverlay();
+    hideOverlay();
   }
 
   /// Measures the hidden tooltip after it's loaded with _loadHiddenOverlay(_)
@@ -141,7 +142,7 @@ class _ElTooltipState extends State<ElTooltip> with WidgetsBindingObserver {
         y: offset.dy,
       );
     }
-    _hideOverlay();
+    hideOverlay();
     return ElementBox(w: 0, h: 0, x: 0, y: 0);
   }
 
@@ -154,7 +155,7 @@ class _ElTooltipState extends State<ElTooltip> with WidgetsBindingObserver {
   }
 
   /// Loads the tooltip into view
-  void _showOverlay(BuildContext context) async {
+  void showOverlay(BuildContext context) async {
     OverlayState? overlayState = Overlay.of(context);
 
     /// By calling [PositionManager.load()] we get returned the position
@@ -177,7 +178,7 @@ class _ElTooltipState extends State<ElTooltip> with WidgetsBindingObserver {
               opacity: 0.7,
               visible: widget.showModal,
               onTap: () {
-                _hideOverlay();
+                hideOverlay();
               },
             ),
             Positioned(
@@ -206,9 +207,7 @@ class _ElTooltipState extends State<ElTooltip> with WidgetsBindingObserver {
               left: _triggerBox.x,
               child: GestureDetector(
                 onTap: () {
-                  _overlayEntry != null
-                      ? _hideOverlay()
-                      : _showOverlay(context);
+                  _overlayEntry != null ? hideOverlay() : showOverlay(context);
                 },
                 child: widget.child,
               ),
@@ -223,12 +222,12 @@ class _ElTooltipState extends State<ElTooltip> with WidgetsBindingObserver {
     // Add timeout for the tooltip to disapear after a few seconds
     if (widget.timeout > 0) {
       await Future.delayed(Duration(seconds: widget.timeout))
-          .whenComplete(() => _hideOverlay());
+          .whenComplete(() => hideOverlay());
     }
   }
 
   /// Method to hide the tooltip
-  void _hideOverlay() {
+  void hideOverlay() {
     if (_overlayEntry != null) {
       _overlayEntry?.remove();
       _overlayEntry = null;
@@ -239,7 +238,7 @@ class _ElTooltipState extends State<ElTooltip> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        _overlayEntry != null ? _hideOverlay() : _showOverlay(context);
+        _overlayEntry != null ? hideOverlay() : showOverlay(context);
       },
       child: widget.child,
     );

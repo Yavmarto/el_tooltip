@@ -1,3 +1,11 @@
+## 1.1.1
+
+* fix: made showing public
+
+## 1.1.0
+
+* fix: made hiding public
+
 ## 1.0.5
 
 * Fix: Problem with setState in big lists.
@@ -22,4 +30,4 @@
 
 ## 1.0.0
 
-* Added: el_tooltip first release.
+* Added: el_tooltip2 first release.

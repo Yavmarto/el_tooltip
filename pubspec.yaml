@@ -1,7 +1,7 @@
-name: el_tooltip
-description: ElTooltip, a smart positioned tooltip. Use it to display a widget inside a tooltip that you can personalize.
-version: 1.0.5
-repository: https://github.com/marcelogil/el_tooltip
+name: el_tooltip2
+description: ElTooltip, a smart positioned tooltip. Use it to display a widget inside a tooltip that you can personalize. With a few changes, Thanks to marcelogil
+version: 1.1.1
+repository: https://github.com/Yavmarto/el_tooltip
 
 environment:
   sdk: ">=2.18.0 <3.0.0"
